@@ -1,7 +1,7 @@
 def hello_world
- # #1
+  greeting = ARGV.shift
    ARGV.each do |arg|
-     puts "Hello, #{arg}!"
+     puts "#{greeting}, #{arg}!"
    end
    
  end
