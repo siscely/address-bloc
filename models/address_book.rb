@@ -29,7 +29,6 @@ class AddressBook
                  entries.delete_at(index)
              end
         end
-    end
     
         def import_from_csv(file_name)
          csv_text = File.read(file_name)
@@ -72,3 +71,4 @@ class AddressBook
              return nil
         end
     end
+end
