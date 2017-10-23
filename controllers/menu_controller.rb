@@ -51,8 +51,8 @@ require_relative '../models/address_book'
    
    def view_all_entries
        address_book.entries.each do |entry|
-       system "clear"
-       puts entry.to_s
+        system "clear"
+        puts entry.to_s
        entry_submenu(entry)
      end
  
