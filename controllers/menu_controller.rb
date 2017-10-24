@@ -16,6 +16,7 @@ require_relative '../models/address_book'
      puts "4 - Import entries from a CSV"
      puts "5 - View entry number n"
      puts "6 - Exit"
+     puts "7 - Delete all entries"
      print "Enter your selection: "
  
  selection = gets.to_i
@@ -134,7 +135,10 @@ require_relative '../models/address_book'
        when "n"
      
        when "d"
+       delete_entry(entry)    
        when "e"
+       edit_entry(entry)
+       entry_submenu(entry)
      
        when "m"
          system "clear"
