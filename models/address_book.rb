@@ -28,6 +28,7 @@ class AddressBook
              if name == entry.name
                  entries.delete_at(index)
              end
+         end
     end
     
     def import_from_csv(file_name)
@@ -64,7 +65,7 @@ class AddressBook
     def iterative_search(name)
      entries.each do |entry|
         if name == entry.name
-         return entries.name
+         return entry.name
         else
          return nil
         end
