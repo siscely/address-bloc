@@ -9,7 +9,11 @@ class Entry
    end
    
    def to_s
+<<<<<<< HEAD
      "Name: #{name}\nPhone Number: #{phone_number}\nEmail: #{email}"
+=======
+       "Name: #{name}, Phone: #{phone_number}, Email: #{email}"
+>>>>>>> checkpoint-5
    end
  
  end
