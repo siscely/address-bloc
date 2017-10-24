@@ -55,8 +55,8 @@ require_relative '../models/address_book'
    
    def view_all_entries
        address_book.entries.each do |entry|
-        system "clear"
-        puts entry.to_s
+       system "clear"
+       puts entry.to_s
        entry_submenu(entry)
      end
  
@@ -134,7 +134,10 @@ require_relative '../models/address_book'
        when "n"
      
        when "d"
+       delete_entry(entry)    
        when "e"
+       edit_entry(entry)
+       entry_submenu(entry)
      
        when "m"
          system "clear"
