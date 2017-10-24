@@ -11,7 +11,7 @@ require_relative '../models/address_book'
      expect(entry.email).to eq expected_email
      end
      
-   describe "attributes" do
+    describe "attributes" do
      it "responds to entries" do
        
 =======
@@ -73,12 +73,18 @@ require_relative '../models/address_book'
        expect(new_entry.phone_number).to eq('010.012.1815')
        expect(new_entry.email).to eq('augusta.king@lovelace.com')
      end
+<<<<<<< HEAD
     end
        
     describe "#remove_entry" do
         before :each do
           puts "inside remove entry before block"
       end
+=======
+   end
+   
+    describe "#remove_entry" do
+>>>>>>> checkpoint-8-assignment
       it "removes only one entry from the address book" do
 <<<<<<< HEAD
           
@@ -287,6 +293,16 @@ require_relative '../models/address_book'
        expect(entry).to be_nil
      end
    end
+   describe "#detonate" do
+      it "removes all entries from the address book" do
+          
+          book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+          book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+          book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+          book.detonate
+          expect(book.entries.size).to eq(0)
+      end
+    end
 end
 =======
   end

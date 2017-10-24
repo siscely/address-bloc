@@ -17,10 +17,14 @@ require_relative '../models/address_book'
      puts "5 - View entry number n"
 <<<<<<< HEAD
      puts "6 - Exit"
+<<<<<<< HEAD
 =======
      puts "6 - Delete all entries"
      puts "7 - Exit"
 >>>>>>> checkpoint-5
+=======
+     puts "7 - Delete all entries"
+>>>>>>> checkpoint-8-assignment
      print "Enter your selection: "
  
  selection = gets.to_i
