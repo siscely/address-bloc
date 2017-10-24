@@ -15,7 +15,12 @@ require_relative '../models/address_book'
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - View entry number n"
+<<<<<<< HEAD
      puts "6 - Exit"
+=======
+     puts "6 - Delete all entries"
+     puts "7 - Exit"
+>>>>>>> checkpoint-5
      print "Enter your selection: "
  
  selection = gets.to_i
@@ -42,6 +47,13 @@ require_relative '../models/address_book'
           entry_n_submenu
           main_menu
        when 6
+<<<<<<< HEAD
+=======
+           system "clear"
+           detonate
+           main_menu
+       when 7
+>>>>>>> checkpoint-5
         puts "Good-bye!"
         exit(0)
     
@@ -162,6 +174,7 @@ require_relative '../models/address_book'
      phone_number = gets.chomp
      print "Updated email: "
      email = gets.chomp
+<<<<<<< HEAD
      
      entry.name = name if !name.empty?
      entry.phone_number = phone_number if !phone_number.empty?
@@ -196,6 +209,42 @@ require_relative '../models/address_book'
      selection = gets.chomp
  
      
+=======
+     
+     entry.name = name if !name.empty?
+     entry.phone_number = phone_number if !phone_number.empty?
+     entry.email = email if !email.empty?
+     system "clear"
+     
+     puts "Updated entry:"
+     puts entry
+   end
+   
+    def search_entries
+     
+     print "Search by name: "
+     name = gets.chomp
+     
+     match = address_book.binary_search(name)
+     system "clear"
+     
+     if match
+       puts match.to_s
+       search_submenu(match)
+     else
+       puts "No match found for #{name}"
+     end
+
+    def search_submenu(entry)
+     
+     puts "\nd - delete entry"
+     puts "e - edit this entry"
+     puts "m - return to main menu"
+     
+     selection = gets.chomp
+ 
+     
+>>>>>>> checkpoint-5
      case selection
        when "d"
          system "clear"
@@ -215,5 +264,8 @@ require_relative '../models/address_book'
          search_submenu(entry)
      end
    end
+   
+   def detonate
+     address_book.entries.clear
   end
- 
+end
