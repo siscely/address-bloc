@@ -3,11 +3,11 @@ require_relative '../models/address_book'
  class MenuController
    attr_reader :address_book
  
-   def initialize
+    def initialize
      @address_book = AddressBook.new
-   end
+    end
  
-   def main_menu
+    def main_menu
      
      puts "Main Menu - #{address_book.entries.count} entries"
      puts "1 - View all entries"
@@ -15,8 +15,8 @@ require_relative '../models/address_book'
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - View entry number n"
-     puts "6 - Exit"
-     puts "7 - Delete all entries"
+     puts "6 - Delete all entries"
+     puts "7 - Exit"
      print "Enter your selection: "
  
  selection = gets.to_i
@@ -43,6 +43,10 @@ require_relative '../models/address_book'
           entry_n_submenu
           main_menu
        when 6
+           system "clear"
+           detonate
+           main_menu
+       when 7
         puts "Good-bye!"
         exit(0)
     
@@ -54,18 +58,18 @@ require_relative '../models/address_book'
    end
  
    
-   def view_all_entries
+    def view_all_entries
        address_book.entries.each do |entry|
        system "clear"
        puts entry.to_s
        entry_submenu(entry)
-     end
+       end
  
      system "clear"
      puts "End of entries"
-   end
+    end
  
-   def create_entry
+    def create_entry
      system "clear"
      puts "New AddressBloc Entry"
      print "Name: "
@@ -80,13 +84,13 @@ require_relative '../models/address_book'
  
      system "clear"
      puts "New entry created"
-   end
+    end
  
-   def entry_n_submenu
+    def entry_n_submenu
        print "Entry #:"
        selection = gets.chomp.to_i
        puts "you picked #{selection}"
-       if selection < address_book.entries.count
+        if selection < address_book.entries.count
            puts address_book.entries[selection]
            puts "press enter to return to the main menu"
            gets.chomp    
@@ -98,7 +102,7 @@ require_relative '../models/address_book'
         end
     end
  
-   def read_csv
+    def read_csv
       print "Enter CSV file to import: "
       file_name = gets.chomp
  
@@ -150,12 +154,12 @@ require_relative '../models/address_book'
      end
    end
    
-   def delete_entry(entry)
+    def delete_entry(entry)
      address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
-   end
+    end
    
-   def edit_entry(entry)
+    def edit_entry(entry)
      
      print "Updated name: "
      name = gets.chomp
@@ -171,7 +175,7 @@ require_relative '../models/address_book'
      
      puts "Updated entry:"
      puts entry
-   end
+    end
    
     def search_entries
      
@@ -187,6 +191,7 @@ require_relative '../models/address_book'
      else
        puts "No match found for #{name}"
      end
+    end
 
     def search_submenu(entry)
      
@@ -215,6 +220,9 @@ require_relative '../models/address_book'
          puts entry.to_s
          search_submenu(entry)
      end
+    end
+   
+   def detonate
+     address_book.entries.clear
    end
-  end
- 
+end
